@@ -33,6 +33,11 @@ public class test {
 		//display number of male and female employees: for example: M -> 2 F -> 2
 		Map<String, Long> employeeCount=listOfEmployees.stream().collect(Collectors.groupingBy(employee :: getGender,Collectors.counting()));
 		System.out.println(employeeCount);
+		
+		
+		//display average age of male and female
+		Map<String, Double> average=listOfEmployees.stream().collect(Collectors.groupingBy(employee::getGender, Collectors.averagingInt(employee::getAge)));
+		System.out.println(average);
 		 
 	}
 }
